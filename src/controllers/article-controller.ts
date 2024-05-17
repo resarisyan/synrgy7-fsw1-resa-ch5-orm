@@ -4,7 +4,9 @@ import { Article } from '../models/article';
 export class ArticleController {
   static async getAll(req: Request, res: Response, next: NextFunction) {
     try {
-      const article = await Article.query();
+      //   const article = await Article.query();
+      // get with relationMappings
+      const article = await Article.query().withGraphFetched('comments');
       if (!article) {
         throw new Error('Articles not found');
       }

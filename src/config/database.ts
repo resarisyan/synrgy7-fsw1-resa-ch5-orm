@@ -1,5 +1,6 @@
-import { Model } from 'objection';
-import knex, { Knex } from 'knex';
+import { Knex } from 'knex';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const connection: Knex.ConnectionConfig = {
   host: process.env.DB_HOST as string,
